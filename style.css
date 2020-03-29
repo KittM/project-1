@@ -2,11 +2,6 @@
      background-color: white;
 }
 
-h2 {
-     font-weight: bolder;
-
-}
-
 .gallery {
      -webkit-column-count: 3;
      -moz-column-count: 3;
