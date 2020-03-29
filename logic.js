@@ -1,3 +1,24 @@
+
+
+  // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyB-nMolmk62DCS_T9_DbsW5GXNOQh8OIK8",
+    authDomain: "project-1-a8c3a.firebaseapp.com",
+    databaseURL: "https://project-1-a8c3a.firebaseio.com",
+    projectId: "project-1-a8c3a",
+    storageBucket: "project-1-a8c3a.appspot.com",
+    messagingSenderId: "119665117888",
+    appId: "1:119665117888:web:2f45b38df71dbd3c83fb25",
+    measurementId: "G-7SVBH9PME7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+
+
+
+
 $(function() {
      var selectedClass = "";
      $(".filter").click(function(){
