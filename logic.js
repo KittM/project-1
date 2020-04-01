@@ -17,6 +17,8 @@ $(document).ready(function () {
 
 });
 
+var unsplashkey = unsplashkey;
+
 //set up array that will populate the buttons
 var subjectArray = ["Sports", "Nature", "Animals", "Buildings", "Fashion", "Abstract"];
 
@@ -38,7 +40,7 @@ $(document).on('click', '.searchButton', function () {
     $('.gallery').empty();
     //assign data attribute to search
     var picture = $(this).attr('data-type');
-    var queryURL = "https://api.unsplash.com/search/photos?query=" + picture + "&client_id=__________per_page=50";
+    var queryURL = "https://api.unsplash.com/search/photos?query=" + picture + "&client_id=" + unsplashkey + "&per_page=50";
     //insert access key between "= per"
     
     // Perfoming an AJAX GET request to our queryURL
@@ -75,6 +77,10 @@ $(document).on('click', '.searchButton', function () {
                $('.gallery').append(pictureDiv);
         }
     })
+})
+
+$(document).on('scroll', function (event) {
+    
 })
 
 //function for adding new button to subject array once a user runs a search for the subject
