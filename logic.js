@@ -17,6 +17,8 @@ $(document).ready(function () {
 
 });
 
+var unsplashkey = unsplashkey;
+
 //set up array that will populate the buttons
 var subjectArray = ["Sports", "Nature", "Animals", "Buildings", "Fashion", "Abstract"];
 
@@ -38,7 +40,8 @@ $(document).on('click', '.searchButton', function () {
     $('.gallery').empty();
     //assign data attribute to search
     var picture = $(this).attr('data-type');
-    var queryURL = "https://api.unsplash.com/search/photos/?query=" + picture + "client_id=accessKey";
+    var queryURL = "https://api.unsplash.com/search/photos?query=" + picture + "&client_id=" + unsplashkey + "&per_page=50";
+    //insert access key between "= per"
     
     // Perfoming an AJAX GET request to our queryURL
     $.ajax({
@@ -48,29 +51,36 @@ $(document).on('click', '.searchButton', function () {
     
     // After the data from the AJAX request comes back
         .then(function (response) {
-
+            $('.gallery').empty();
         //getting images from API and setting up their layout
-               for (var i = 0; i < response.data.length; i++) {
+               for (var i = 0; i < response.results.length; i++) {
 
         //display images and ratings
-                    $('.gallery').empty();
-                    var pictureDiv = $('<div class= "card" id= "search-item">');
+                    
+                    var pictureDiv = $('<div class="mb-3 pics animation all 2">');
 
         // variable for image
-               var searchImage = response.data[i].images.url;
+               var searchImage = response.results[i].urls.small;
 
        //Creating and storing an image tag and assiging attributes to image searched for to make into image
                var image = $('<img>');
                image.attr('src', searchImage);
-               image.addClass('pictureImage');
+                   image.addClass('img-fluid');
+                   console.log(image)
 
                //attaching rating to bottom of div
-               pictureDiv.append(p);
+                   //pictureDiv.append(p);
+                   //console.log(pictureDiv);
+                   //console.log(p);
                //attaching image to top of div
                pictureDiv.prepend(image);
                $('.gallery').append(pictureDiv);
         }
     })
+})
+
+$(document).on('scroll', function (event) {
+    
 })
 
 //function for adding new button to subject array once a user runs a search for the subject
