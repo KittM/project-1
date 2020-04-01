@@ -38,7 +38,8 @@ $(document).on('click', '.searchButton', function () {
     $('.gallery').empty();
     //assign data attribute to search
     var picture = $(this).attr('data-type');
-    var queryURL = "https://api.unsplash.com/search/photos?query=" + picture + "&client_id=y38Jk_LOKuPLJm-3Z_M-5VDk9rDRIpwySCrdSIcevJE&per_page=50";
+    var queryURL = "https://api.unsplash.com/search/photos?query=" + picture + "&client_id=__________per_page=50";
+    //insert access key between "= per"
     
     // Perfoming an AJAX GET request to our queryURL
     $.ajax({
