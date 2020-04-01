@@ -1,3 +1,7 @@
+.navbar {
+     background-color: white;
+}
+
 .gallery {
      -webkit-column-count: 3;
      -moz-column-count: 3;
