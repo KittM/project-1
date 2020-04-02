@@ -58,6 +58,8 @@ $(document).on('click', '.searchButton', function () {
         //display images and ratings
                     
                     var pictureDiv = $('<div class="mb-3 pics animation all 2">');
+                    pictureDiv.attr('data-toggle', 'modal');
+                    pictureDiv.attr('data-target', '#m1')
 
         // variable for image
                var searchImage = response.results[i].urls.small;
@@ -67,6 +69,8 @@ $(document).on('click', '.searchButton', function () {
                image.attr('src', searchImage);
                    image.addClass('img-fluid');
                    console.log(image)
+
+
 
                //attaching rating to bottom of div
                    //pictureDiv.append(p);
