@@ -12,7 +12,6 @@ firebase.initializeApp(firebaseConfig);
 $('#save-changes').on('click', create_account);
 
 function create_account(e) {
-<<<<<<< HEAD
     if (e) {
         e.preventDefault();
     }
@@ -22,20 +21,9 @@ function create_account(e) {
     firebase.auth().createUserWithEmailAndPassword(storeEmail, storePass).catch(function(error) {
         window.alert('Error: ' + error.message);
     });
-=======
-  if (e) {
-    e.preventDefault();
-  }
+    $('#exampleModal').modal('hide');
+    return false;
 
-  var storeEmail = $('.store-email').val().trim();
-  var storePass = $('.store-pass').val().trim();
-  firebase.auth().createUserWithEmailAndPassword(storeEmail, storePass).catch(function(error) {
-    window.alert('Error: ' + error.message);
-  });
-  $('#exampleModal').modal('hide'); 
-  return false;
-
->>>>>>> master
 }
 
 
