@@ -13,168 +13,79 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Font Awesome CSS Icons (For cool glyphicons) -->
-<<<<<<< HEAD:History.html
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-=======
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
     <!--Cropper JS Link-->
     <script type="text/javascript" src="cropper.js"></script>
-    
-  
->>>>>>> master:Upload.html
+
+
     <title>project 1</title>
 </head>
 
 <body>
-    <!--Beginning of NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
-        <!--Project 1 Logo Button which directs you to homepage-->
-        <a class="navbar-brand" href="#">
-            <h3>Project One</h3>
-        </a>
+        <a class="navbar-brand" href="#"><img id=navbarlogo src="logo black.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--End of Project 1 Logo Button which directs you to homepage-->
+           <span class="navbar-toggler-icon"></span>
+      </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<<<<<<< HEAD:History.html
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <h3>Login</h3><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.html">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <h3><i class="fa fa-ellipsis-h"></i></h3>
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          More
+                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">About Us</a>
-                        <a class="dropdown-item" href="#">History</a>
+                        <a class="dropdown-item" href="#">Photo editor</a>
+                        <a class="dropdown-item" href="#">API</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-warning" id='sign-out'>Sign Out</button>
             </form>
         </div>
     </nav>
     <!--End of NavBar-->
-    <!--Beginning of Button Container-->
-    <div class="container">
-        <!-- Grid row -->
-        <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-12 d-flex justify-content-center mb-5">
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="0">Sports</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Nature</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Animals</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="3">Buildings</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="4">Fashion</button>
-                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="5">Abstract</button>
-            </div>
-            <!-- Grid column -->
-        </div>
-        <!-- Grid row -->
-    </div>
-    <!--End of Button Container-->
-
     <!-- Beginning of Photo Container -->
-    <div class="gallery container" id="gallery">
-        <!-- Grid column -->
-        <div class="mb-3 pics animation all 2">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
+    <container>
+        <div class="row">
+            <div class="col-12 canvas">
+                <canvas id="testCanvas" width="600" height="600" style="border: 1px solid black;">Your browser does not support canvas.</canvas>
+                <script type="text/javascript">
+                    cropper.start(document.getElementById("testCanvas"), 1); // initialize cropper by providing it with a target canvas and a XY ratio (height = width * ratio)
+                    function handleFileSelect() {
+                        // this function will be called when the file input below is changed
+                        var file = document.getElementById("fileInput").files[0]; // get a reference to the selected file
+                        var reader = new FileReader(); // create a file reader
+                        // set an onload function to show the image in cropper once it has been loaded
+                        reader.onload = function(event) {
+                            var data = event.target.result; // the "data url" of the image
+                            cropper.showImage(data); // hand this to cropper, it will be displayed
+                        };
+                        reader.readAsDataURL(file); // this loads the file as a data url calling the function above once done
+                    }
+                </script>
+                <br />
+                <!-- Below are a series of inputs which allow file selection and interaction with the cropper api -->
+                <input type="file" id="fileInput" onchange="handleFileSelect()" value="" />
+                <input type="button" onclick="cropper.startCropping()" value="Start cropping" />
+                <input type="button" onclick="cropper.getCroppedImageSrc()" value="Crop" />
+                <input type="button" onclick="cropper.restore()" value="Restore" />
+            </div>
         </div>
-        <!-- Grid column -->
+    </container>
 
-        <!-- Grid column -->
-        <div class="mb-3 pics animation all 1">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="mb-3 pics animation all 1">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="mb-3 pics animation all 2">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="mb-3 pics animation all 2">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="mb-3 pics animation all 1">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
-        </div>
-        <!-- Grid column -->
-
-    </div>
     <!-- End of Photo Container-->
-=======
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><h3>Login</h3><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-              <h3><i class="fa fa-ellipsis-h"></i></h3> 
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">About Us</a>
-                <a class="dropdown-item" href="#">Upload Your Photo</a>
-              </div>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-  <!--End of NavBar-->
-  <!-- Beginning of Photo Container -->
-  <container>
-    <div class="row">
-      <div class="col-12 canvas">
-        <canvas id="testCanvas" width="600" height="600" style="border: 1px solid black;">Your browser does not support canvas.</canvas>
-        <script type="text/javascript">
-          cropper.start(document.getElementById("testCanvas"), 1); // initialize cropper by providing it with a target canvas and a XY ratio (height = width * ratio)
-          function handleFileSelect() {
-            // this function will be called when the file input below is changed
-            var file = document.getElementById("fileInput").files[0];  // get a reference to the selected file
-            var reader = new FileReader(); // create a file reader
-            // set an onload function to show the image in cropper once it has been loaded
-            reader.onload = function(event) {
-              var data = event.target.result; // the "data url" of the image
-              cropper.showImage(data); // hand this to cropper, it will be displayed
-            };
-            reader.readAsDataURL(file); // this loads the file as a data url calling the function above once done
-          }
-        </script>
-        <br />
-        <!-- Below are a series of inputs which allow file selection and interaction with the cropper api -->
-        <input type="file" id="fileInput" onchange="handleFileSelect()" value = "" />
-        <input type="button" onclick="cropper.startCropping()" value="Start cropping" />
-        <input type="button" onclick="cropper.getCroppedImageSrc()" value="Crop" />
-        <input type="button" onclick="cropper.restore()" value="Restore" />
-      </div>
-    </div>
-  </container>
-  
-  <!-- End of Photo Container-->
->>>>>>> master:Upload.html
 
     <!-- Beginning of Footer -->
     <footer class="page-footer font-small">
@@ -186,52 +97,30 @@
         <!-- Copyright -->
 
     </footer>
-<<<<<<< HEAD:History.html
-    <<<<<<< HEAD <!-- Footer -->
-=======
     <!-- Footer -->
->>>>>>> master:Upload.html
 
 
 
 
-<<<<<<< HEAD:History.html
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="logic.js"></script>
+    <!-- End of Footer -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="logic.js"></script>
 </body>
-=======
-<!-- End of Footer -->
 
+<!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="logic.js"></script>
+
 </body>
->>>>>>> f1c5817ef3f3f1123030b24b1572c886e1ee89e1
-=======
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="logic.js"></script>
-  
-</body>
->>>>>>> master:Upload.html
+<!-----master:Upload.html---->
 
 </html>
