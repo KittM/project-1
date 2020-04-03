@@ -21,6 +21,9 @@ function create_account(e) {
   firebase.auth().createUserWithEmailAndPassword(storeEmail, storePass).catch(function(error) {
     window.alert('Error: ' + error.message);
   });
+  $('#exampleModal').modal('hide'); 
+  return false;
+
 }
 
 
