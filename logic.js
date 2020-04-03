@@ -76,7 +76,7 @@ $(document).on('click', '.searchButton', function () {
         }
     })
 
-    
+
 })
 
 $('#gallery').on('click', '.pics', function () {
@@ -84,20 +84,20 @@ $('#gallery').on('click', '.pics', function () {
     var queryURL = 'https://api.kanye.rest';
 
     $.ajax({
-    url: queryURL,
-    method: 'GET'
-    }).then(function(response){
-    console.log(response.quote + ' ~Kanye West');
+        url: queryURL,
+        method: 'GET'
+    }).then(function (response) {
+        console.log(response.quote + ' ~Kanye West');
 
-    var Ye = `<blockquote>`;
-    Ye +=       `<p>${response.quote}</p>`;
-    Ye +=      `<footer>~Kanye</footer>`;
-    Ye +=      `</blockquote>`;
-    
-    $('.modal-header').empty();
-    $('.modal-header').append(Ye);
+        var Ye = `<blockquote>`;
+        Ye += `<p>${response.quote}</p>`;
+        Ye += `<footer>~Kanye</footer>`;
+        Ye += `</blockquote>`;
 
-})
+        $('.modal-header').empty();
+        $('.modal-header').append(Ye);
+
+    })
 
 
     var modalBody = $('.modal-body');
@@ -118,4 +118,6 @@ $('.btn').on('click', function (event) {
         setButtons(subjectArray, 'searchButton', '#buttonsArea');
     }
 });
+
+
 
