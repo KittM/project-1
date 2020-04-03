@@ -121,8 +121,20 @@ btn btn-primary btn-outline-black waves-effect filter {
     color: #fe7e08;
 }
 
+<<<<<<< HEAD
 #aboutpic {
     height: 100px;
     widows: 150px;
     ;
+=======
+.canvas {
+     width: auto;
+     padding-left: 25%;
+     padding-top: 5%;
+}
+
+#btncropper {
+     border: none; 
+     
+>>>>>>> master
 }
