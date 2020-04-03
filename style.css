@@ -95,7 +95,7 @@ img {
 }
 
 #navbarlogo {
-    width: 150px;
+    width: 170px;
     height: 40px;
 }
 
@@ -103,7 +103,26 @@ img {
     color: white;
 }
 
-#navlogo {
-    width: 200px;
-    height: 50px;
+#sign-out {
+    background-color: #fe7e08;
+    margin-left: 5px;
+}
+
+#buttonsArea {
+    margin: 5px;
+}
+
+#login-btn {
+    background-color: #fe7e08;
+}
+
+btn btn-primary btn-outline-black waves-effect filter {
+    margin: 5px;
+    color: #fe7e08;
+}
+
+#aboutpic {
+    height: 100px;
+    widows: 150px;
+    ;
 }

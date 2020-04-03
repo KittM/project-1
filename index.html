@@ -19,41 +19,42 @@
 </head>
 
 <body>
-    <!--Beginning of NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
-        <!--Project 1 Logo Button which directs you to homepage-->
-        <a class="navbar-brand" href="#">
-            <h3>Project One</h3>
-        </a>
+        <a class="navbar-brand" href="#"><img id=navbarlogo src="logo black.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--End of Project 1 Logo Button which directs you to homepage-->
+               <span class="navbar-toggler-icon"></span>
+          </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <h3>Login</h3><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.html">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <h3><i class="fa fa-ellipsis-h"></i></h3>
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              More
+                         </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">About Us</a>
-                        <a class="dropdown-item" href="#">History</a>
+                        <a class="dropdown-item" href="#">Photo editor</a>
+                        <a class="dropdown-item" href="#">API</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0 submit-button" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-warning" id='sign-out'>Sign Out</button>
             </form>
         </div>
     </nav>
+
     <!--End of NavBar-->
 
-    <button id='sign-out'>Sign Out</button>
+
 
     <!--Beginning of Button Container-->
     <div class="container">
@@ -136,16 +137,17 @@
 
 
 
+
     <!-- Footer -->
-    <footer class="page-footer font-small">
+    <div class="fixed-bottom">
+        <footer class="page-footer font-small">
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://mdbootstrap.com/"> project1.com</a>
-        </div>
-        <!-- Copyright -->
-
-    </footer>
+            <!-- Copyright -->
+            <div id=footer-text class="footer-copyright text-center py-3">© 2020 Copyright: Project 1
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
     <!-- Footer -->
 
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
