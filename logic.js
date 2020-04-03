@@ -12,7 +12,11 @@
 // });
 
 
+<<<<<<< HEAD
+$(document).ready(function() {
+=======
 $(document).ready(function () {
+>>>>>>> master
     setButtons(subjectArray, 'searchButton', '#buttonsArea')
 
 });
@@ -37,7 +41,11 @@ function setButtons(subjectArray, classToAdd, areaToAddTo) {
 
 
 //set up what happens once you enter subject area in the search box and click the "submit" button
+<<<<<<< HEAD
+$(document).on('click', '.searchButton', function() {
+=======
 $(document).on('click', '.searchButton', function () {
+>>>>>>> master
 
     $('.gallery').empty();
     //assign data attribute to search
@@ -49,8 +57,15 @@ $(document).on('click', '.searchButton', function () {
     $.ajax({
         url: queryURL,
         method: 'GET'
+<<<<<<< HEAD
+    })
+
+    // After the data from the AJAX request comes back
+    .then(function(response) {
+=======
     }).then(function (response) {
         console.log(response);
+>>>>>>> master
         $('.gallery').empty();
         //getting images from API and setting up their layout
         for (var i = 0; i < response.results.length; i++) {
@@ -68,17 +83,35 @@ $(document).on('click', '.searchButton', function () {
             var image = $('<img>');
             image.attr('src', searchImage);
             image.addClass('img-fluid');
+<<<<<<< HEAD
+            console.log(image)
+=======
             //    console.log(image)
+>>>>>>> master
 
             pictureDiv.prepend(image);
             $('.gallery').append(pictureDiv);
 
+<<<<<<< HEAD
+
+            //attaching rating to bottom of div
+            //pictureDiv.append(p);
+            //console.log(pictureDiv);
+            //console.log(p);
+            //attaching image to top of div
+            pictureDiv.prepend(image);
+            $('.gallery').append(pictureDiv);
+=======
+>>>>>>> master
         }
     })
 
 
 })
 
+<<<<<<< HEAD
+$(document).on('scroll', function(event) {
+=======
 $('#gallery').on('click', '.pics', function () {
 
     var queryURL = 'https://api.kanye.rest';
@@ -104,15 +137,21 @@ $('#gallery').on('click', '.pics', function () {
     modalBody.empty();
     $(this).first().clone().appendTo(modalBody);
 
+>>>>>>> master
 
 })
 
 
 //function for adding new button to subject array once a user runs a search for the subject
-$('.btn').on('click', function (event) {
+$('.btn').on('click', function(event) {
 
     event.preventDefault();
     var newSearch = $('input').eq(0).val().trim();
+<<<<<<< HEAD
+    subjectArray.push(newSearch);
+    setButtons(subjectArray, 'searchButton', '#buttonsArea');
+});
+=======
     if (newSearch.length > 0) {
         subjectArray.push(newSearch);
         setButtons(subjectArray, 'searchButton', '#buttonsArea');
@@ -121,3 +160,4 @@ $('.btn').on('click', function (event) {
 
 
 
+>>>>>>> master
