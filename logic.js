@@ -34,6 +34,8 @@ function setButtons(subjectArray, classToAdd, areaToAddTo) {
     }
 };
 
+
+
 //set up what happens once you enter subject area in the search box and click the "submit" button
 $(document).on('click', '.searchButton', function () {
 
@@ -71,8 +73,6 @@ $(document).on('click', '.searchButton', function () {
             pictureDiv.prepend(image);
             $('.gallery').append(pictureDiv);
 
-
-
         }
     })
 
@@ -81,9 +81,29 @@ $(document).on('click', '.searchButton', function () {
 
 $('#gallery').on('click', '.pics', function () {
 
+    var queryURL = 'https://api.kanye.rest';
+
+    $.ajax({
+    url: queryURL,
+    method: 'GET'
+    }).then(function(response){
+    console.log(response.quote + ' ~Kanye West');
+
+    var Ye = `<blockquote>`;
+    Ye +=       `<p>${response.quote}</p>`;
+    Ye +=      `<footer>~Kanye</footer>`;
+    Ye +=      `</blockquote>`;
+    
+    $('.modal-header').empty();
+    $('.modal-header').append(Ye);
+
+})
+
+
     var modalBody = $('.modal-body');
     modalBody.empty();
     $(this).first().clone().appendTo(modalBody);
+
 
 })
 
@@ -93,6 +113,9 @@ $('.btn').on('click', function (event) {
 
     event.preventDefault();
     var newSearch = $('input').eq(0).val().trim();
-    subjectArray.push(newSearch);
-    setButtons(subjectArray, 'searchButton', '#buttonsArea');
+    if (newSearch.length > 0) {
+        subjectArray.push(newSearch);
+        setButtons(subjectArray, 'searchButton', '#buttonsArea');
+    }
 });
+
