@@ -62,21 +62,19 @@
             <div class="col-12 canvas">
                 <canvas id="testCanvas" width="600" height="600" style="border: 1px solid black;">Your browser does not support canvas.</canvas>
                 <script type="text/javascript">
-                    cropper.start(document.getElementById("testCanvas"), 1); // initialize cropper by providing it with a target canvas and a XY ratio (height = width * ratio)
+                    cropper.start(document.getElementById("testCanvas"), 1); 
                     function handleFileSelect() {
-                        // this function will be called when the file input below is changed
-                        var file = document.getElementById("fileInput").files[0]; // get a reference to the selected file
-                        var reader = new FileReader(); // create a file reader
-                        // set an onload function to show the image in cropper once it has been loaded
+                        var file = document.getElementById("fileInput").files[0]; 
+                        var reader = new FileReader(); 
                         reader.onload = function(event) {
-                            var data = event.target.result; // the "data url" of the image
-                            cropper.showImage(data); // hand this to cropper, it will be displayed
+                            var data = event.target.result; 
+                            cropper.showImage(data); 
                         };
-                        reader.readAsDataURL(file); // this loads the file as a data url calling the function above once done
+                        reader.readAsDataURL(file);
                     }
                 </script>
                 <br />
-                <!-- Below are a series of inputs which allow file selection and interaction with the cropper api -->
+            
                 <input type="file" id="fileInput" onchange="handleFileSelect()" value="" />
                 <input type="button" onclick="cropper.startCropping()" value="Start cropping" />
                 <input type="button" onclick="cropper.getCroppedImageSrc()" value="Crop" />
@@ -113,12 +111,12 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="logic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="logic.js"></script>
 
 </body>
 <!-----master:Upload.html---->
