@@ -24,10 +24,10 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
-        <a class="navbar-brand" href="#"><img id=navbarlogo src="logo black.png"></a>
+        <a class="navbar-brand" href="index.html"><img id=navbarlogo src="logo k.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-      </button>
+               <span class="navbar-toggler-icon"></span>
+          </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -36,49 +36,39 @@
                 <li class="nav-item">
                     <a class="nav-link" href="aboutUs.html">About</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          More
-                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Photo editor</a>
-                        <a class="dropdown-item" href="#">API</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="Upload.html">Photo Editor</a>
                 </li>
+
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                <button class="btn btn-warning" id='sign-out'>Sign Out</button>
-            </form>
         </div>
     </nav>
     <!--End of NavBar-->
     <!-- Beginning of Photo Container -->
+
     <container>
         <div class="row">
             <div class="col-12 canvas">
                 <canvas id="testCanvas" width="600" height="600" style="border: 1px solid black;">Your browser does not support canvas.</canvas>
                 <script type="text/javascript">
-                    cropper.start(document.getElementById("testCanvas"), 1); 
+                    cropper.start(document.getElementById("testCanvas"), 1);
+
                     function handleFileSelect() {
-                        var file = document.getElementById("fileInput").files[0]; 
-                        var reader = new FileReader(); 
+                        var file = document.getElementById("fileInput").files[0];
+                        var reader = new FileReader();
                         reader.onload = function(event) {
-                            var data = event.target.result; 
-                            cropper.showImage(data); 
+                            var data = event.target.result;
+                            cropper.showImage(data);
                         };
                         reader.readAsDataURL(file);
                     }
                 </script>
                 <br />
-            
+
                 <input type="file" id="fileInput" onchange="handleFileSelect()" value="" />
-                <input type="button" onclick="cropper.startCropping()" value="Start cropping" />
-                <input type="button" onclick="cropper.getCroppedImageSrc()" value="Crop" />
-                <input type="button" onclick="cropper.restore()" value="Restore" />
+                <input id="cropbtn" type="button" onclick="cropper.startCropping()" value="Start Cropping" />
+                <input id="cropbtn" type="button" onclick="cropper.getCroppedImageSrc()" value="Crop" />
+                <input id="cropbtn" type="button" onclick="cropper.restore()" value="Restore" />
             </div>
         </div>
     </container>
@@ -111,12 +101,12 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="logic.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="logic.js"></script>
 
 </body>
 <!-----master:Upload.html---->
