@@ -1,7 +1,7 @@
 # project-1
 # Project 1
 
-![enter image description here](https://raw.githubusercontent.com/KittM/project-1/master/logo%20k.png)
+![Project 1 Logo](https://raw.githubusercontent.com/KittM/project-1/master/logo%20k.png)
 
 
 The Project 1 app was developed to help people create inspirational memes and quotes. 
@@ -17,6 +17,8 @@ CSS is also required to overlay inspirational quotes on them images. In the futu
 We discovered Cropper.js which is a js library that can be installed into your script and edit photos online. We struggle with the functionality of this library because we don't have the ability to storage images files to a server. However we've incorporated the crop function to our photo editor page which will allow users to resize thier favorite photos. 
 
 
+![Cropper Example](https://raw.githubusercontent.com/KittM/project-1/master/cropperexample.png)
+
 ## API
 We utilized API's from [https://unsplash.com/developers](https://unsplash.com/developers) to query photos from Unsplash and [https://kanye.rest/](https://kanye.rest/) to generate quotes. Both API's are called with ajax. 
 
@@ -26,9 +28,13 @@ Clicking on an image triggers a modal to open and the image to expand. In the fu
 
 Simultaneously we search for an inspirational quote and dynamically add it to the header of each image when the modal opens. 
 
+
+
 ## Firebase
 
 Users can sign up on our page and create an account on Project 1. The credentials stored on Google's Firebase. In the future, we'd like to add custom user accounts and track download history. 
+
+![Firebase Example](https://raw.githubusercontent.com/KittM/project-1/master/firebaseexample.png)
 
 ## Coming soon....
 
