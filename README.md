@@ -43,6 +43,7 @@ Users can sign up on our page and create an account on Project 1. The credential
 
  - Don't commit to master.
  - Research your API options early.
- - A lot more time for Javascript that styling.
+ - Devote more time to Javascript than styling.
+ - Paid storage would make storing data easier. 
 
 
