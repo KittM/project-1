@@ -1,21 +1,8 @@
-//$(function() {
-// var selectedClass = "";
-// $(".filter").click(function(){
-// selectedClass = $(this).attr("data-rel");
-// $("#gallery").fadeTo(100, 0.1);
-// $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
-// setTimeout(function() {
-// $("."+selectedClass).fadeIn().addClass('animation');
-// $("#gallery").fadeTo(300, 1);
-// }, 300);
-// });
-// });
-
-
 $(document).ready(function() {
     setButtons(subjectArray, 'searchButton', '#buttonsArea')
-
 });
+
+
 
 var unsplashkey = unsplashkey;
 
@@ -32,22 +19,12 @@ function setButtons(subjectArray, classToAdd, areaToAddTo) {
         subjectbtn.text(subjectArray[i]);
         $(areaToAddTo).append(subjectbtn);
     }
-};
+}
 
-
-
-//set up what happens once you enter subject area in the search box and click the "submit" button
-$(document).on('click', '.searchButton', function() {
-
-    $('.gallery').empty();
-    //assign data attribute to search
-    var picture = $(this).attr('data-type');
-    var queryURL = "https://api.unsplash.com/search/photos?query=" + picture + "&client_id=" + unsplashkey + "&per_page=50";
-    //insert access key between "= per"
-
+function unsplashCall(q) {
     // Perfoming an AJAX GET request to our queryURL
     $.ajax({
-        url: queryURL,
+        url: q,
         method: 'GET'
     }).then(function(response) {
         console.log(response);
@@ -59,7 +36,7 @@ $(document).on('click', '.searchButton', function() {
 
             var pictureDiv = $('<div class="mb-3 pics animation all 2">');
             pictureDiv.attr('data-toggle', 'modal');
-            pictureDiv.attr('data-target', '#m1')
+            pictureDiv.attr('data-target', '#m1');
 
             // variable for image
             var searchImage = response.results[i].urls.small;
@@ -72,12 +49,29 @@ $(document).on('click', '.searchButton', function() {
 
             pictureDiv.prepend(image);
             $('.gallery').append(pictureDiv);
-
         }
-    })
+    });
+
+}
 
 
-})
+//set up what happens once you enter subject area in the search box and click the "submit" button
+$(document).on('click', '#searchbtn', function(e) {
+    e.preventDefault();
+    $('.gallery').empty();
+    //assign data attribute to search
+    // var picture = $(this).attr('data-type');
+    var newSearch = $('#search-input').val().trim();
+    console.log(newSearch);
+
+    var queryURL = "https://api.unsplash.com/search/photos?query=" + newSearch + "&client_id=" + unsplashkey + "&per_page=50&order_by=latest";
+    console.log(queryURL);
+    //insert access key between "= per"
+
+    unsplashCall(queryURL);
+
+
+});
 
 $('#gallery').on('click', '.pics', function() {
 
@@ -97,7 +91,7 @@ $('#gallery').on('click', '.pics', function() {
         $('.modal-header').empty();
         $('.modal-header').append(Ye);
 
-    })
+    });
 
 
     var modalBody = $('.modal-body');
@@ -105,16 +99,15 @@ $('#gallery').on('click', '.pics', function() {
     $(this).first().clone().appendTo(modalBody);
 
 
-})
+});
 
-
-//function for adding new button to subject array once a user runs a search for the subject
-$('.btn').on('click', function(event) {
-
+$(document).on('click', '.searchButton', function(event) {
     event.preventDefault();
-    var newSearch = $('input').eq(0).val().trim();
-    if (newSearch.length > 0) {
-        subjectArray.push(newSearch);
-        setButtons(subjectArray, 'searchButton', '#buttonsArea');
-    }
+
+    var newSearch = $(this).attr('data-type');
+    var queryURL = "https://api.unsplash.com/search/photos?query=" + newSearch + "&client_id=" + unsplashkey + "&per_page=50&order_by=latest";
+    console.log(queryURL);
+
+    unsplashCall(queryURL);
+
 });
